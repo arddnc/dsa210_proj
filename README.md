@@ -23,21 +23,32 @@ The main goal is to move beyond opinions and use objective analysis to explore w
 
 ## 📦 Data Sources
 
-1. **NFL Player Career Statistics (Primary Dataset)**  
-   - **Source:** [Pro-Football-Reference](https://www.pro-football-reference.com/players/)  
-   - **Access:** Publicly available tables that can be downloaded as CSV or collected via `pandas.read_html()` in Python.  
-   - **Players to Compare:**  
-     - Tom Brady  
-     - Peyton Manning  
-     - Aaron Rodgers  
-     - Patrick Mahomes  
-     - Joe Montana  
-   - **Main Features:** Season, Team, Games, Passing Yards, Touchdowns (TD), Interceptions (INT), Completion %, QBR, Wins, and Super Bowl results.
+### 1. **NFL Player Career Statistics (Primary Dataset)**  
+Career performance data for each quarterback will be collected from individual Pro-Football-Reference (PFR) player pages:
 
-2. **Enrichment**  
-   - Awards or team performance data from the same site (e.g., MVP, All-Pro selections, win percentages).  
-   - This can provide an additional layer of context for comparing recognition and consistency.
+- **Tom Brady:** https://www.pro-football-reference.com/players/B/BradTo00.htm  
+- **Peyton Manning:** https://www.pro-football-reference.com/players/M/MannPe00.htm  
+- **Aaron Rodgers:** https://www.pro-football-reference.com/players/R/RodgAa00.htm  
+- **Patrick Mahomes:** https://www.pro-football-reference.com/players/M/MahoPa00.htm  
+- **Joe Montana:** https://www.pro-football-reference.com/players/M/MontJo01.htm  
 
+These pages include structured statistical tables (passing, advanced metrics, season summaries) that can be directly imported using  
+`pandas.read_html()` in Python.
+
+**Main Features Collected:** Season, Team, Games, Passing Yards, Touchdowns (TD), Interceptions (INT), Completion %, QBR, Wins, and Super Bowl results.
+
+---
+
+### 2. **Enrichment Dataset**  
+Additional data will be collected to provide context on awards and team success:
+
+- **NFL Awards (MVP, All-Pro selections, etc.):**  
+  https://www.pro-football-reference.com/awards/
+
+- **NFL Team Standings & Win Percentages (by year):**  
+  https://www.pro-football-reference.com/years/
+
+These datasets will help evaluate recognition, consistency, and team performance alongside individual statistics.
 ---
 
 ## 🔬 Analysis Plan
@@ -81,14 +92,26 @@ Example analyses include:
 
 ---
 
-### 🧪 4️⃣ Hypothesis Testing
-To statistically assess whether Tom Brady’s performance is superior to his peers:
+### 🧪 Hypotheses
 
-- **Null Hypothesis (H₀):** Brady’s performance metrics are not significantly different from other elite quarterbacks.  
-- **Alternative Hypothesis (H₁):** Brady’s performance metrics are significantly higher than his peers.  
+To rigorously evaluate whether Tom Brady deserves the GOAT title, multiple hypotheses will be tested:
 
-Two-sample t-tests or ANOVA will be used depending on data structure.  
-Results will indicate whether observed differences are statistically significant.
+- **H1: Efficiency Advantage**  
+  Tom Brady’s TD/INT ratio is significantly higher than other elite quarterbacks.
+
+- **H2: Consistency Advantage**  
+  Tom Brady exhibits significantly lower year-to-year variability in key metrics (yards, TD, QBR).
+
+- **H3: Longevity Effect**  
+  Brady’s performance decline with age is significantly slower compared to peers.
+
+- **H4: Game Impact Hypothesis**  
+  Brady’s win percentage is significantly higher than other elite quarterbacks.
+
+- **H5: Peak Performance Comparison**  
+  There is no significant difference between Brady’s peak season and the peak seasons of Mahomes/Manning/Rodgers.
+
+These hypotheses will be tested using statistical methods such as two-sample t-tests and ANOVA, depending on data structure.
 
 ---
 
